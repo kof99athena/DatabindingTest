@@ -12,14 +12,23 @@
             type="com.athena.databindingtest.model.AthenaViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tools:layout_editor_absoluteX="138dp"
+            tools:layout_editor_absoluteY="26dp"
+            app:imageUrl="@{vm.img}"
+            />
 
         <Button
             android:id="@+id/button"
+            android:onClick="@{v->vm.changeImage()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Button"
@@ -31,16 +40,12 @@
 <!--        이미지뷰는 src폴더 즉 R장부에서 꺼내와야한다. (이미지url을 설정하는 기능 자체가 없다.) -->
 <!--        바인딩아답터를 붙여서 연결해줘야한다. -->
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="138dp"
-            tools:layout_editor_absoluteY="26dp"
-            />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="384dp"
             android:layout_height="224dp"
+            app:item="@{vm.items}"
             android:layout_marginBottom="252dp"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="16dp" />
@@ -50,7 +55,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Button"
+            android:onClick="@{v->vm.add()}"
             tools:layout_editor_absoluteX="170dp"
             tools:layout_editor_absoluteY="496dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 </layout>
