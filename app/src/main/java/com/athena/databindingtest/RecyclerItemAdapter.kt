@@ -27,9 +27,7 @@ class RecyclerItemAdapter(val context: Context, val items: List<AthenaItem>) : A
 
     override fun getItemCount(): Int {
         return items.size
-
     }
-
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.binding.item = items[position]
@@ -38,6 +36,5 @@ class RecyclerItemAdapter(val context: Context, val items: List<AthenaItem>) : A
             Toast.makeText(context, "${items[position]}", Toast.LENGTH_SHORT).show()
         }
     }
-
 
 }

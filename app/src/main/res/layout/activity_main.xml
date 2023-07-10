@@ -1,63 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<!--        변수를 만들어준다. -->
-<!--        지금 내가 만든 <data>는 일반변수처럼 사용하려고 만든게 아니다.-->
-<!--        변수의 값이 고정된게 아니고 알아서 바꿔줄수있게끔 구현할것이다.-->
+        <!--        변수를 만들어준다. -->
+        <!--        지금 내가 만든 <data>는 일반변수처럼 사용하려고 만든게 아니다.-->
+        <!--        변수의 값이 고정된게 아니고 알아서 바꿔줄수있게끔 구현할것이다.-->
         <variable
             name="vm"
             type="com.athena.databindingtest.model.AthenaViewModel" />
     </data>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            tools:layout_editor_absoluteX="138dp"
-            tools:layout_editor_absoluteY="26dp"
-            app:imageUrl="@{vm.img}"
-            />
+            android:layout_gravity="center"
+            app:imageUrl="@{vm.img}" />
 
         <Button
-            android:id="@+id/button"
-            android:onClick="@{v->vm.changeImage()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="160dp"
-            tools:layout_editor_absoluteY="178dp" />
+            android:layout_gravity="center"
+            android:onClick="@{v->vm.changeImage()}"
+            android:text="Button" />
 
 
-<!--ImageView를 바인딩할때 주의점-->
-<!--        이미지뷰는 src폴더 즉 R장부에서 꺼내와야한다. (이미지url을 설정하는 기능 자체가 없다.) -->
-<!--        바인딩아답터를 붙여서 연결해줘야한다. -->
-
+        <!--ImageView를 바인딩할때 주의점-->
+        <!--        이미지뷰는 src폴더 즉 R장부에서 꺼내와야한다. (이미지url을 설정하는 기능 자체가 없다.) -->
+        <!--        바인딩아답터를 붙여서 연결해줘야한다. -->
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="384dp"
-            android:layout_height="224dp"
-            app:item="@{vm.items}"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="252dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="16dp" />
+            android:background="@color/black"
+            app:item="@{vm.items}" />
 
         <Button
-            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:layout_gravity="center"
             android:onClick="@{v->vm.add()}"
-            tools:layout_editor_absoluteX="170dp"
-            tools:layout_editor_absoluteY="496dp" />
-
+            android:text="Button" />
     </LinearLayout>
 </layout>
