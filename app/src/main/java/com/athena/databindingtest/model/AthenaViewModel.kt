@@ -13,14 +13,16 @@ class AthenaViewModel {
         ObservableField("https://cdn.pixabay.com/photo/2023/06/18/04/57/crimson-collared-tanager-8071235_1280.jpg")
 
 
-    val items: ObservableField<MutableList<AthenaItem>> =
-        ObservableField(mutableListOf(AthenaItem("name", "msg"), AthenaItem("ahn", "hello")))
+    //리사이클러뷰가 보여줄 대량의 데이터 컬렉션
+    val items : ObservableField<MutableList<AthenaItem>> = ObservableField(mutableListOf(AthenaItem("안","안녕"),AthenaItem("안녕","반갑")))
+
 
     fun add() {
         val list: MutableList<AthenaItem> = mutableListOf()
         list.add(AthenaItem("databinding", Date().toString()))
         list.addAll(items.get()!!)
         items.set(list)
+
     }
 
     fun changeImage() {

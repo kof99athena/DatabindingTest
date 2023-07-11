@@ -21,8 +21,9 @@ object AthenaBindingAdapter {
 
 
     @BindingAdapter("item")
+    //지금 이 "item"은 어디서 볼수있나? xml 속성에 item을 만든것이다. 리사이클러아이템 확인가능
     @JvmStatic
     fun setItemList(view : RecyclerView, items:Any){
-        view.adapter = RecyclerItemAdapter(view.context, items as List<AthenaItem>)
+        view.adapter = RecyclerItemAdapter(view.context,items as List<AthenaItem>)
     }
 }
